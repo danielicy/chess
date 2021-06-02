@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  margin: 10%;
+  margin: 7%;
 }
 
 .App-logo {
@@ -39,4 +39,5 @@
 }
 
 .clockcontainer {
+  margin: 2em;
 }

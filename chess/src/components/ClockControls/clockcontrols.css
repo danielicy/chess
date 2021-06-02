@@ -6,5 +6,40 @@
   background-color: red;
 }
 
+.reset {
+  background-color: indigo;
+}
+
+.start:hover {
+  background-color: rgb(109, 167, 109);
+}
+
+.stop:hover {
+  background-color: rgb(250, 109, 109);
+}
+
+.reset:hover {
+  background-color: rgb(207, 54, 195);
+}
+
+.start,
+.stop,
+.reset {
+  border-radius: 100%;
+  padding: 1em;
+  border: grey 0.2em outset;
+  color: lightgray;
+  font-weight: bold;
+}
+
+.start:hover,
+.stop:hover,
+.reset:hover {
+  background-color: rgb(109, 167, 109);
+  cursor: pointer;
+  padding: 0.8em;
+  border: grey 0.2em inset;
+}
+
 .controls {
 }
