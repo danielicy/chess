@@ -1,0 +1,9 @@
+.start {
+  margin: 5em;
+  background-color: green;
+}
+
+.stop {
+  margin: 5em;
+  background-color: red;
+}
