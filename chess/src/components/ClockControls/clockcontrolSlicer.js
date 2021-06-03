@@ -4,22 +4,30 @@ export const Clock = createSlice({
   name: 'clock',
   initialState: {
     running: false,
-    time:  0
+    time:  0,
+    interval:0
   },
   reducers: {
-    start: state => {     
-      state.running = true
+    start: (state, action) => {          
+      state.running = true;
+      state.interval = action.payload;
+      
     },
     stop: state => {
-        state.running = false
+      
+        state.running = false;
+    },
+    tick:(state, action) =>{
+      console.log(action)
     },
     reset: (state, action) => {
-      state.time = 0
+      alert('reset')  
+      state.time = 0;
     }
   }
 })
 
 // Action creators are generated for each case reducer function
-export const { start, stop, reset } = Clock.actions
+export const { start, stop, reset,tick } = Clock.actions
 
 export default Clock.reducer

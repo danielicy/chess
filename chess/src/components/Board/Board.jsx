@@ -1,10 +1,10 @@
 import React from 'react';
 import  board  from '../../assets/img/chessboard.png';
 
-function Board(props) {
+function Board() {
     return (
         <div>
-              <img src={board}/>
+              <img src={board} alt='board'/>
         </div>
     );
 }

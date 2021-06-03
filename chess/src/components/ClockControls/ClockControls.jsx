@@ -1,23 +1,43 @@
 import React from 'react';
 
 import { useSelector, useDispatch } from 'react-redux'
-import { start ,stop ,reset} from './clockcontrolSlicer';
+import { start ,stop ,reset, tick} from './clockcontrolSlicer';
 import './clockcontrols.css';
 
 function ClockControls(props) {
 
     const running = useSelector(state => state.clock.running);
+    const interval = useSelector(state => state.clock.interval);
 
     const dispatch = useDispatch();
+    
+    function startTimer() {
+      
+        const interval = setInterval(() => {
+        dispatch(tick(props.id));
 
+     });
+    
+     dispatch(start(interval));
+    }
+
+    function stopTimer(){
+      clearInterval(interval);
+      dispatch(stop());
+      console.log("stopped")
+
+    }
+      
+     
     return (
         <div className="controls">
            <span
              className="start"
           aria-label="Start"
           onClick={() => {
-            dispatch(start());
-            alert(running);
+            startTimer();
+           // dispatch(start());
+             
           }}
         >
           Start
@@ -26,8 +46,8 @@ function ClockControls(props) {
              className="stop"
           aria-label="Stop"
           onClick={() => {
-            dispatch(stop());
-            alert(running);
+            stopTimer();
+            
           }}
         >
           Stop
@@ -37,7 +57,7 @@ function ClockControls(props) {
           aria-label="Reset"
           onClick={() => {
             dispatch(reset());
-            alert(running);
+            
           }}
         >
           Reset
