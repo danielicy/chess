@@ -12,7 +12,9 @@ import { useSelector, useDispatch } from 'react-redux'
 function Clock(props) {
     
     let timer =  useSelector(state => state.clock.timers[parseInt(props.id)]);
-
+ 
+    console.log(props.id)
+    
     function format(time) {
         const pad = (time, length) => {
           while (time.length < length) {

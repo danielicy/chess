@@ -9,8 +9,13 @@ function ClockControls(props) {
     let interval= 0;
 
     const dispatch = useDispatch();
-    const clockid= parseInt(props.id);
+
     
+
+    const clockid= parseInt(props.id);
+
+    dispatch(reset({id:clockid}));
+
     function startTimer() {      
          interval = setInterval(() => {
         dispatch(tick({
@@ -54,7 +59,7 @@ function ClockControls(props) {
              className="reset"
           aria-label="Reset"
           onClick={() => {
-            dispatch(reset());
+            dispatch(reset({id:clockid}));
             
           }}
         >
