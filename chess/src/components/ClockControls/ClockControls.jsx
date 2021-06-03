@@ -9,18 +9,24 @@ function ClockControls(props) {
     let interval= 0;
 
     const dispatch = useDispatch();
+    const clockid= parseInt(props.id);
     
     function startTimer() {      
          interval = setInterval(() => {
-        dispatch(tick(props.id));
+        dispatch(tick({
+          id:clockid,
+          time: Date.now()}));
      });
     
-     dispatch(start(interval));
+     dispatch(start({
+       id:clockid,
+       offset: Date.now(),
+       interval}));
     }
 
     function stopTimer(){
       clearInterval(interval);
-      dispatch(stop());
+      dispatch(stop({id:clockid}));
     }
       
      

@@ -3,15 +3,20 @@ import { createSlice } from '@reduxjs/toolkit'
 export const Clock = createSlice({
   name: 'clock',
   initialState: {
-    timers:[] = ['d'],
+    timers:[],
     running: false,
     time:  0,
-    interval:0
+    interval:0,
+    offset:[]
   },
   reducers: {
     start: (state, action) => {          
       state.running = true;
-      state.interval = action.payload;
+      state.timers[action.payload.id]=action.payload.offset;
+      state.interval = action.payload.interval;
+
+      state.offset[action.payload.id]= action.payload.offset;
+     
       
     },
     stop: state => {      
@@ -19,7 +24,10 @@ export const Clock = createSlice({
         console.log("stop")
     },
     tick:(state, action) =>{
-      console.log(action)
+      console.log(action);
+      state.timers[action.payload.id]= state.timers[action.payload.id] +
+       (action.payload.time - state.offset[action.payload.id] );
+      state.offset[action.payload.id] = action.payload.time;
     },
     reset: (state, action) => {
       alert('reset')  
