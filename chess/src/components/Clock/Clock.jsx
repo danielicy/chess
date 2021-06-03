@@ -1,11 +1,6 @@
-//https://stackoverflow.com/questions/34577012/creating-a-stopwatch-with-redux
-//https://jsbin.com/dupeji/12/edit?js,output
-//https://jsfiddle.net/kontrolonics/8wm3yu5o/
-
-//https://dev.to/abdulbasit313/how-to-develop-a-stopwatch-in-react-js-with-custom-hook-561b
 import React from 'react';
 import './clock.css';
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 
 
@@ -13,8 +8,7 @@ function Clock(props) {
     
     let timer =  useSelector(state => state.clock.timers[parseInt(props.id)]);
  
-    console.log(props.id)
-    
+   
     function format(time) {
         const pad = (time, length) => {
           while (time.length < length) {

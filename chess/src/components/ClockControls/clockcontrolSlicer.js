@@ -12,15 +12,11 @@ export const Clock = createSlice({
   reducers: {
     start: (state, action) => {          
       state.running = true;
-      state.timers[action.payload.id]=action.payload.offset;
-      state.interval = action.payload.interval;
-      state.offset[action.payload.id]= action.payload.offset;
-     
-      
+        state.interval = action.payload.interval;
+        state.offset[action.payload.id]= action.payload.offset;      
     },
     stop: state => {      
-        state.running = false;
-        console.log("stop")
+        state.running = false;  
     },
     tick:(state, action) =>{      
       state.timers[action.payload.id]= state.timers[action.payload.id] +
@@ -28,7 +24,7 @@ export const Clock = createSlice({
       state.offset[action.payload.id] = action.payload.time;
     },
     reset: (state, action) => {
-        
+      state.offset[action.payload.id]=0;
       state.timers[action.payload.id]=0;
     }
   }

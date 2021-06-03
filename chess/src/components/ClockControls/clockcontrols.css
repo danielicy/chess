@@ -30,12 +30,12 @@
   border: grey 0.2em outset;
   color: lightgray;
   font-weight: bold;
+  margin: 1em;
 }
 
 .start:hover,
 .stop:hover,
 .reset:hover {
-  background-color: rgb(109, 167, 109);
   cursor: pointer;
   padding: 0.8em;
   border: grey 0.2em inset;

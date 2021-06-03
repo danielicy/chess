@@ -21,13 +21,7 @@ function App() {
       <div className="clockcontainer">
         <ClockControls id='2'/>
         <Clock id='2'/>
-      </div> 
-      <Counter/>
-
-      <Timer 
-      time={store.getState().timer.time}
-      isOn={store.getState().timer.isOn}
-    />
+      </div>       
     </div>
   );
 }
