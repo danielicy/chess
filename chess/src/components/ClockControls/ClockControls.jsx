@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { start ,stop ,reset, tick} from './clockcontrolSlicer';
 import './clockcontrols.css';
 
@@ -9,9 +8,7 @@ function ClockControls(props) {
     let interval= 0;
 
     const dispatch = useDispatch();
-
     
-
     const clockid= parseInt(props.id);
 
     dispatch(reset({id:clockid}));

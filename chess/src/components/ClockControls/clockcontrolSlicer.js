@@ -5,7 +5,6 @@ export const Clock = createSlice({
   initialState: {
     timers:[],
     running: false,
-   // time:  0,
     interval:0,
     offset:[]
   },
