@@ -14,13 +14,13 @@ function App() {
       
       <div className="clockcontainer">
         <ClockControls id='1'/>
-       <Clock/>
+       <Clock id ='1'/>
       </div> 
       
       <Board/>
       <div className="clockcontainer">
         <ClockControls id='2'/>
-        <Clock/>
+        <Clock id='2'/>
       </div> 
       <Counter/>
 

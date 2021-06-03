@@ -1,41 +1,7 @@
 
  import { createSlice } from '@reduxjs/toolkit'
 
-// Initial state for reducer
-const initialState = {
-    isOn: false,
-    time: 0
-  };
-  
-  // Reducer function
-  const timer = (state = initialState, action) => {
-    switch (action.type) {
-      case 'START_TIMER':
-        return {
-          ...state,
-          isOn: true,
-          offset: action.offset
-        };
-      
-      case 'STOP_TIMER':
-        return {
-          ...initialState
-        };
-        
-      case 'TICK':
-        return {
-          ...state,
-          time: state.time + (action.time - state.offset),
-          offset: action.time
-        };
-  
-      default: 
-        return state;
-    }
-  }
 
-
-  //export default timer;
 
  
 
@@ -53,7 +19,9 @@ export const timerSlice = createSlice({
       state.isOn = true
     },
     stop: state => {
-        state.isOn = false
+      alert("stopped");
+        //state.isOn = false;
+      
     },
     tick: (state, action) => {
       state.time =state.time + (action.time - state.offset)

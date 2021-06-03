@@ -5,17 +5,14 @@ import { start ,stop ,reset, tick} from './clockcontrolSlicer';
 import './clockcontrols.css';
 
 function ClockControls(props) {
-
-    const running = useSelector(state => state.clock.running);
-    const interval = useSelector(state => state.clock.interval);
+     
+    let interval= 0;
 
     const dispatch = useDispatch();
     
-    function startTimer() {
-      
-        const interval = setInterval(() => {
+    function startTimer() {      
+         interval = setInterval(() => {
         dispatch(tick(props.id));
-
      });
     
      dispatch(start(interval));
@@ -24,8 +21,6 @@ function ClockControls(props) {
     function stopTimer(){
       clearInterval(interval);
       dispatch(stop());
-      console.log("stopped")
-
     }
       
      
@@ -35,9 +30,7 @@ function ClockControls(props) {
              className="start"
           aria-label="Start"
           onClick={() => {
-            startTimer();
-           // dispatch(start());
-             
+            startTimer();             
           }}
         >
           Start
@@ -46,8 +39,7 @@ function ClockControls(props) {
              className="stop"
           aria-label="Stop"
           onClick={() => {
-            stopTimer();
-            
+            stopTimer();            
           }}
         >
           Stop
@@ -63,7 +55,7 @@ function ClockControls(props) {
           Reset
         </span>
 
-        <span>State: {running}</span>
+       
         </div>
     );
 }

@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const Clock = createSlice({
   name: 'clock',
   initialState: {
+    timers:[] = ['d'],
     running: false,
     time:  0,
     interval:0
@@ -13,9 +14,9 @@ export const Clock = createSlice({
       state.interval = action.payload;
       
     },
-    stop: state => {
-      
+    stop: state => {      
         state.running = false;
+        console.log("stop")
     },
     tick:(state, action) =>{
       console.log(action)
